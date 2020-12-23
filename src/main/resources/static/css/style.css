@@ -1,6 +1,12 @@
 body {
+
     background-color: #dddddd;
     font-family: arial, helevetica, sans-serif;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
 }
 
 .bookHeadline {

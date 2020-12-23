@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Reading List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">  //this line as in book not loading css
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">  <!--this line as in book not loading css-->
 </head>
 <body>
+<div class="container">
     <h2>Your Reading List</h2>
     <div th:unless="${#lists.isEmpty(books)}">
         <dl th:each="book : ${books}">
@@ -27,20 +28,21 @@
         <p>You have no books in your book list</p>
     </div>
 
-    <hr />
+    <hr/>
 
     <h3>Add a book</h3>
     <form method="POST">
         <label for="title">Title:</label>
-            <input type="text" name="title" size="50"><br />
+        <input type="text" name="title" size="50"><br/>
         <label for="author">Author:</label>
-            <input type="text" name="author" size="50"><br />
+        <input type="text" name="author" size="50"><br/>
         <label for="isbn">ISBN:</label>
-            <input type="text" name="author" size="50"><br />
-        <label for="description">Description:</label><br />
-            <textarea name="description" cols="80" rows="5">
-            </textarea><br />
+        <input type="text" name="author" size="50"><br/>
+        <label for="description">Description:</label><br/>
+        <textarea name="description" cols="80" rows="5">
+            </textarea><br/>
         <input type="submit">
     </form>
+</div>
 </body>
 </html>
