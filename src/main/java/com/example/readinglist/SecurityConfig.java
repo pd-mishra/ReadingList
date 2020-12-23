@@ -17,6 +17,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private ReaderRepository readerRepository;
 
+    public SecurityConfig(ReaderRepository readerRepository) {
+        this.readerRepository = readerRepository;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -39,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     @Override
                     public UserDetails loadUserByUsername(String username)
                             throws UsernameNotFoundException {
-                        return readerRepository.getOne(username);
+                        return readerRepository.findById(username).orElse(null);
                     }
                 });
     }
